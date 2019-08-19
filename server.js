@@ -13,7 +13,7 @@ var server = http.createServer(function(req, resp){
 			resp.write(fileContent);
 			resp.end();
 		}
-	});
+	}) ;
 });
 
 server.listen(8080);
