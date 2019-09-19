@@ -1,1 +1,7 @@
 buildPack: javascript
+pipelineConfig:
+  pipelines:
+    release:
+      build:
+        steps:
+        - command: node server.js
