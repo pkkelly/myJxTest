@@ -1,0 +1,43 @@
+
+Showing logs for build [32mmeta-pkkelly-myjxtest-master-jcrj7-2[0m stage [32mmeta-pipeline[0m and container [32mstep-credential-initializer-z8jns[0m
+{"level":"warn","ts":1568856343.1635418,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1568856343.1653783,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mmeta-pkkelly-myjxtest-master-jcrj7-2[0m stage [32mmeta-pipeline[0m and container [32mstep-working-dir-initializer-7xd92[0m
+{"level":"warn","ts":1568856349.4514341,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1568856349.4527526,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mmeta-pkkelly-myjxtest-master-jcrj7-2[0m stage [32mmeta-pipeline[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mmeta-pkkelly-myjxtest-master-jcrj7-2[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-pkkelly-myjxtest-master-kglpm[0m
+{"level":"warn","ts":1568856369.0552638,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1568856371.9172213,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/*******/myJxTest.git @ 660944f1917e99d0a44798197d2b2f52a7a1bf12 in path /workspace/source"}
+
+Showing logs for build [32mmeta-pkkelly-myjxtest-master-jcrj7-2[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:ba7c5b42d297fb7ab4d8082617589ae86e8efe07
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mmeta-pkkelly-myjxtest-master-jcrj7-2[0m stage [32mmeta-pipeline[0m and container [32mstep-merge-pull-refs[0m
+SKIP merge-pull-refs: Nothing to merge
+
+Showing logs for build [32mmeta-pkkelly-myjxtest-master-jcrj7-2[0m stage [32mmeta-pipeline[0m and container [32mstep-create-effective-pipeline[0m
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
+Effective pipeline written to jenkins-x-effective.yml
+
+Showing logs for build [32mmeta-pkkelly-myjxtest-master-jcrj7-2[0m stage [32mmeta-pipeline[0m and container [32mstep-create-tekton-crds[0m
+running command: echo \$(**-release-version) > VERSION
+
+running command: ** step tag --version \$(cat VERSION)
+Updating chart version in charts/my**test/Chart.yaml to 0.0.1
+Updating repository in charts/my**test/values.yaml to 10.104.51.125:5000/*******/my**test
+Updating tag in charts/my**test/values.yaml to 0.0.1
+error: Have you set up a git credential helper? See https://help.github.com/articles/caching-your-github-password-in-git/
+: git output: To https://github.com/*******/myJxTest.git
+ ! [remote rejected] v0.0.1 -> v0.0.1 (cannot lock ref 'refs/tags/v0.0.1': reference already exists)
+error: failed to push some refs to 'https://github.com/*******/myJxTest.git': failed to run 'git push origin v0.0.1' command in directory '', output: 'To https://github.com/*******/myJxTest.git
+ ! [remote rejected] v0.0.1 -> v0.0.1 (cannot lock ref 'refs/tags/v0.0.1': reference already exists)
+error: failed to push some refs to 'https://github.com/*******/myJxTest.git''
+error: failed to set the version on release pipelines: failed to run '/bin/sh -c ** step tag --version $(cat VERSION)' command in directory '/workspace/source', output: ''
+[31m
+Pipeline failed on stage 'meta-pipeline' : container 'step-create-tekton-crds'. The execution of the pipeline has stopped.[0m
